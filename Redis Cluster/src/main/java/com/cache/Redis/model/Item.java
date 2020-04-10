@@ -1,4 +1,4 @@
-package com.cache.rediscluster.model;
+package com.cache.Redis.model;
 
 import java.io.Serializable;
 
