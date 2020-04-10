@@ -37,7 +37,7 @@ For Linux
 6. To start the cli for the node
 
         src/redis-cli
-## Tutorial/Documentation
+## Redis Notes
 
 https://github.com/aman7797/super-pancake/tree/master/Learn%20Redis%20And%20Utilize%20Jedis%20With%20Spring%20Data%20Redis
 
