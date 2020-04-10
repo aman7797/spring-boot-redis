@@ -26,6 +26,7 @@ Deploying Redis Clusters requires no external proxies or tools, so there are no 
 Multi-key operations are supported only when all the keys in a single operation belong to the same slot. This is something to be careful about when designing your data structures.
 
 **Project Overview**
+
 ![Cluster Implementation](/img/cluster_architecture.png)
 ## Setup Redis Cluster
 
