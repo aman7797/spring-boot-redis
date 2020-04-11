@@ -28,6 +28,55 @@ Notification. Sentinel can notify the system administrator, or other computer pr
 
 ## Setup Redis Sentinel
 
+1. Start the master and slave node
+
+    start the master
+
+        redis-server
+
+    start the slave
+
+        redis-server 6380.conf
+
+    ![Master Slave](/img/master_slave_server.png)
+
+2. Create 2 different config file sentinel.conf with different port and different name
+
+        port 26379
+        sentinel monitor master 127.0.0.1 6379 2
+        sentinel down-after-milliseconds master 5000
+        sentinel failover-timeout master 60000
+        sentinel config-epoch master 0
+
+    - `26379` is the sentinel port
+    - `master` is the name for the master declared
+    - `127.0.0.1` is the host for the master
+    - `6379` is the port for the master
+    - `1` is the quorum size
+3. Start the Sentinel
+
+        redis-server sentinel.conf --sentinel
+
+    ![Sentinel Start](/img/sentinel_cli.png)
+
 ## Setup Jedis Sentinel
 
-## Operations
+Creating connection
+```java
+@Bean
+public RedisConnectionFactory jedisConnectionFactory() {
+    RedisSentinelConfiguration sentinelConfig = new RedisSentinelConfiguration().master("master")
+            .sentinel(host, node1).sentinel(host, node2);
+    return new JedisConnectionFactory(sentinelConfig);
+}
+```
+
+Created Redis Template
+```java
+@Bean
+public RedisTemplate<String, Object> redisTemplate() {
+    RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
+    redisTemplate.setConnectionFactory(jedisConnectionFactory());
+    return redisTemplate;
+}
+```
