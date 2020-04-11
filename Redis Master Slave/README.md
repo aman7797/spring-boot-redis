@@ -38,8 +38,16 @@ another Redis server.
         
             replicaof 127.0.0.1 6379
         `6379` master node port
+        
         `127.0.0.1` if the master is on the local network
 
+    - Make the slave node up
+
+            redis-server 6380.config
+
+        `redis-server` executable file
+
+        `6380.config` slave config file
 ## Configure Master Slave
 
 1. Pom Dependency
@@ -58,7 +66,7 @@ another Redis server.
 
     ```properties
     redis.host=localhost
-    redis.port=7001
+    redis.port=6379
     redis.password=
     redis.jedis.pool.max-total=16
     redis.jedis.pool.max-idle=8
