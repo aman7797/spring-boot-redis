@@ -157,7 +157,7 @@ To test the cluster connection -start the cli
     </dependency>
     ```
 
-2. Declare the properties in application.properties
+2. Configure the properties in application.properties
 
     ```properties
     redis.host=localhost
