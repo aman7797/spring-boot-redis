@@ -38,7 +38,29 @@ For Windows
         ping
     ![Redis Server](img/redis-cli-ping.png)
     
+<<<<<<< HEAD
 ## Tutorial/Documentation
+=======
+For Linux
+
+1. Download [Redis](https://redis.io/download)
+2. Unzip the downloaded file
+
+        tar -xvf redis-*.tar.gz
+3. Go to the directory
+
+        cd redis-stable
+4. Run make to create executable 
+
+        make
+5. To start the node server
+
+        src/redis-server
+6. To start the cli for the node
+
+        src/redis-cli
+## Redis Notes
+>>>>>>> 4c24ebbedec92cb89d55d61577a028581d9ce172
 
 https://github.com/aman7797/super-pancake/tree/master/Learn%20Redis%20And%20Utilize%20Jedis%20With%20Spring%20Data%20Redis
 
